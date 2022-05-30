@@ -7,6 +7,7 @@ class Player
   end
 end
 
+# creates board class that has most of the game's functionality
 class Board
   def initialize
     @wordlist = []
