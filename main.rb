@@ -6,3 +6,12 @@ class Player
     letter
   end
 end
+
+class Board
+  def initialize
+    @wordlist = []
+    @chosen_word = []
+    @hidden = []
+    @ref_chosen = []
+  end
+end
