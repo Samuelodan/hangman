@@ -14,4 +14,8 @@ class Board
     @hidden = []
     @ref_chosen = []
   end
+
+  def load_words
+    @wordlist = File.read('google-10000-english-no-swears.txt').split("\n")
+  end
 end
