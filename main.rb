@@ -2,8 +2,18 @@
 
 # creates player object
 class Player
-  def make_guess(letter)
-    letter
+  def initialize
+    @guess = ''
+  end
+
+  def make_guess
+    puts 'Enter a letter you think is included in the secret word'
+    letter = gets.chomp.downcase
+    unless letter.match?(/^[a-z]{1}$/)
+      puts 'guess must be only one English letter'
+      make_guess
+    end
+    @guess = letter
   end
 end
 
