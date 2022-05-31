@@ -23,5 +23,6 @@ class Board
 
   def choose_word
     @chosen_word = @wordlist.sample
+    @ref_chosen = @chosen_word
   end
 end
