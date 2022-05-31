@@ -22,7 +22,7 @@ class Board
   end
 
   def choose_word
-    @chosen_word = @wordlist.sample
+    @chosen_word = @wordlist.sample.split('')
     @ref_chosen = @chosen_word
   end
 end
