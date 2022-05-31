@@ -9,13 +9,16 @@ class Player
   def make_guess
     puts 'Enter a letter you think is included in the secret word'
     letter = gets.chomp.downcase
-    unless letter.match?(/^[a-z]{1}$/)
+    until letter.match?(/^[a-z]{1}$/)
       puts 'guess must be only one English letter'
-      make_guess
+      letter = gets.chomp.downcase
     end
     @guess = letter
+    puts "guess: #{@guess}"
   end
 end
+
+Player.new.make_guess
 
 # creates board class that has most of the game's functionality
 class Board
