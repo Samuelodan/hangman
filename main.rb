@@ -17,6 +17,7 @@ class Board
   end
 
   def load_words
-    @wordlist = File.read('google-10000-english-no-swears.txt').split("\n")
+    words = File.read('google-10000-english-no-swears.txt').split("\n")
+    @wordlist = words.select { |w| w.length.between?(5, 12) }
   end
 end
