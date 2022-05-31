@@ -20,4 +20,8 @@ class Board
     words = File.read('google-10000-english-no-swears.txt').split("\n")
     @wordlist = words.select { |w| w.length.between?(5, 12) }
   end
+
+  def choose_word
+    @chosen_word = @wordlist.sample
+  end
 end
