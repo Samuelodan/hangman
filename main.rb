@@ -14,11 +14,8 @@ class Player
       letter = gets.chomp.downcase
     end
     @guess = letter
-    puts "guess: #{@guess}"
   end
 end
-
-Player.new.make_guess
 
 # creates board class that has most of the game's functionality
 class Board
