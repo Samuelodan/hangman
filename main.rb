@@ -25,4 +25,9 @@ class Board
     @chosen_word = @wordlist.sample.split('')
     @ref_chosen = @chosen_word
   end
+
+  def display_hint
+    @hidden = Array.new(@chosen_word.length) { '—' } if @hidden.empty?
+    puts @hidden
+  end
 end
