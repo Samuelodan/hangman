@@ -28,6 +28,7 @@ class Board
     @chosen_word = []
     @hidden = []
     @ref_chosen = []
+    @player = Player.new
   end
 
   def load_words
