@@ -21,6 +21,8 @@ end
 
 # creates board class that has most of the game's functionality
 class Board
+  attr_accessor :wordlist, :chosen_word, :hidden, :ref_chosen
+
   def initialize
     @wordlist = []
     @chosen_word = []
@@ -30,16 +32,16 @@ class Board
 
   def load_words
     words = File.read('google-10000-english-no-swears.txt').split("\n")
-    @wordlist = words.select { |w| w.length.between?(5, 12) }
+    self.wordlist = words.select { |w| w.length.between?(5, 12) }
   end
 
   def choose_word
-    @chosen_word = @wordlist.sample.split('')
-    @ref_chosen = @chosen_word
+    self.chosen_word = @wordlist.sample.split('')
+    self.ref_chosen = @chosen_word
   end
 
   def display_hint
-    @hidden = Array.new(@chosen_word.length) { '—' } if @hidden.empty?
-    puts @hidden
+    self.hidden = Array.new(@chosen_word.length) { '—' } if hidden.empty?
+    puts hidden
   end
 end
