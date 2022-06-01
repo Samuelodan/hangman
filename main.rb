@@ -2,6 +2,8 @@
 
 # creates player object
 class Player
+  attr_accessor :guess
+
   def initialize
     @guess = ''
   end
@@ -13,7 +15,7 @@ class Player
       puts 'guess must be only one English letter'
       letter = gets.chomp.downcase
     end
-    @guess = letter
+    self.guess = letter
   end
 end
 
