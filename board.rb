@@ -2,9 +2,10 @@
 
 require './player'
 
-# creates board class that has most of the game's functionality
+# creates board object that has most of the game's functionality
 class Board
-  attr_accessor :wordlist, :chosen_word, :hidden, :ref_chosen, :win
+  attr_accessor :wordlist, :chosen_word, :hidden, :ref_chosen, :win, :correct
+  attr_reader :player
 
   def initialize
     @wordlist = []
@@ -13,6 +14,7 @@ class Board
     @ref_chosen = []
     @player = Player.new
     @win = false
+    @correct = true
     load_words
   end
 
@@ -32,11 +34,13 @@ class Board
   end
 
   def validate_guess
-    guess = @player.guess
+    guess = player.guess
     if choose_word.include?(guess)
+      self.correct = true
       update_hint(guess)
     else
       puts 'oops! try another letter'
+      self.correct = false
     end
   end
 
