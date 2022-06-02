@@ -31,4 +31,12 @@ class Game
     #   handle_guess
     # end
   end
+
+  def start
+    board.choose_word
+    set_chances
+    chances.times do
+      handle_guess
+    end
+  end
 end
