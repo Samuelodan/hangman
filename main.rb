@@ -21,7 +21,7 @@ end
 
 # creates board class that has most of the game's functionality
 class Board
-  attr_accessor :wordlist, :chosen_word, :hidden, :ref_chosen
+  attr_accessor :wordlist, :chosen_word, :hidden, :ref_chosen, :win
 
   def initialize
     @wordlist = []
@@ -29,6 +29,7 @@ class Board
     @hidden = []
     @ref_chosen = []
     @player = Player.new
+    @win = false
     load_words
   end
 
@@ -60,5 +61,9 @@ class Board
     index = chosen_word.index(guess)
     hidden[index] = choose_word[index]
     chosen_word[index] = '—'
+  end
+
+  def check_win
+    self.win = true unless hidden.include?('—')
   end
 end
