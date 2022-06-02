@@ -30,12 +30,12 @@ class Board
 
   def display_hint
     self.hidden = Array.new(@chosen_word.length) { '—' } if hidden.empty?
-    puts hidden
+    p hidden
   end
 
   def validate_guess
     guess = player.guess
-    if choose_word.include?(guess)
+    if chosen_word.include?(guess)
       self.correct = true
       update_hint(guess)
     else
