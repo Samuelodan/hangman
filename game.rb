@@ -18,4 +18,17 @@ class Game
     puts "Chances left: #{chances}"
     self.chances -= 1
   end
+
+  def handle_guess
+    board.display_hint
+    chances_left
+    board.player.make_guess
+    board.validate_guess
+    board.check_win
+    # if board.correct
+    #   # call next method
+    # else
+    #   handle_guess
+    # end
+  end
 end
