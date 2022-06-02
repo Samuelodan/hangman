@@ -36,6 +36,7 @@ class Board
   def validate_guess
     guess = player.guess
     if chosen_word.include?(guess)
+      puts 'Correct! Nice!'
       self.correct = true
       update_hint(guess)
     else
@@ -46,7 +47,7 @@ class Board
 
   def update_hint(guess)
     index = chosen_word.index(guess)
-    hidden[index] = choose_word[index]
+    hidden[index] = chosen_word[index]
     chosen_word[index] = '—'
   end
 
