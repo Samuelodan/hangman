@@ -45,4 +45,10 @@ class Board
     self.hidden = Array.new(@chosen_word.length) { '—' } if hidden.empty?
     puts hidden
   end
+
+  def update_hint(guess)
+    index = chosen_word.index(guess)
+    hidden[index] = choose_word[index]
+    chosen_word[index] = '—'
+  end
 end
