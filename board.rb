@@ -24,8 +24,8 @@ class Board
   end
 
   def choose_word
-    self.chosen_word = @wordlist.sample.split('')
-    self.ref_chosen = @chosen_word
+    self.chosen_word = wordlist.sample.split('')
+    self.ref_chosen = chosen_word.clone
   end
 
   def display_hint
