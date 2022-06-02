@@ -19,6 +19,11 @@ class Game
     self.chances -= 1
   end
 
+  def console_player
+    reveal_word
+    puts 'Gameover, you failed to guess the word in time. Hit "run" to play again'
+  end
+
   def congrats
     reveal_word
     puts 'Yoohoo! You guessed the word, good job!'
