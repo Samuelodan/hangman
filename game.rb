@@ -2,7 +2,8 @@ require './board'
 
 # handles the flow of the game
 class Game
-  attr_reader :board, :chances
+  attr_reader :board
+  attr_accessor :chances
 
   def initialize
     @board = Board.new
