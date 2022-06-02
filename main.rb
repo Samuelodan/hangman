@@ -46,6 +46,15 @@ class Board
     puts hidden
   end
 
+  def validate_guess
+    guess = @player.guess
+    if choose_word.include?(guess)
+      update_hint(guess)
+    else
+      puts 'oops! try another letter'
+    end
+  end
+
   def update_hint(guess)
     index = chosen_word.index(guess)
     hidden[index] = choose_word[index]
