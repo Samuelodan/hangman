@@ -13,4 +13,9 @@ class Game
   def set_chances
     self.chances = (board.chosen_word.length * 1.5).to_i
   end
+
+  def chances_left
+    puts "Chances left: #{chances}"
+    self.chances -= 1
+  end
 end
