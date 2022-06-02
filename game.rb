@@ -19,6 +19,11 @@ class Game
     self.chances -= 1
   end
 
+  def congrats
+    reveal_word
+    puts 'Yoohoo! You guessed the word, good job!'
+  end
+
   def reveal_word
     hidden_word = board.ref_chosen.join
     puts "The secret word was: \"#{hidden_word}\""
