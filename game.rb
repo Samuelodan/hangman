@@ -53,5 +53,6 @@ class Game
     chances.times do
       handle_guess
     end
+    console_player unless board.win
   end
 end
