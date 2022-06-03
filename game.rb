@@ -26,7 +26,7 @@ class Game
 
   def congrats
     reveal_word
-    puts 'Yoohoo! You guessed the word, good job!'
+    puts 'Yoohoo! You guessed it, good job!'
   end
 
   def reveal_word
@@ -40,6 +40,7 @@ class Game
     board.player.make_guess
     board.validate_guess
     board.check_win
+    return congrats if board.win
     # if board.correct
     #   # call next method
     # else
@@ -51,6 +52,8 @@ class Game
     board.choose_word
     set_chances
     chances.times do
+      break if board.win
+
       handle_guess
     end
     console_player unless board.win
