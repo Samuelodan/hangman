@@ -17,10 +17,10 @@ class Game
   end
 
   def chances_left
-    unless board.correct
-      puts "Chances left: #{chances}"
-      self.chances -= 1
-    end
+    return if board.correct
+
+    puts "Chances left: #{chances}"
+    self.chances -= 1
   end
 
   def console_player
