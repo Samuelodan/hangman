@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require './board'
 
 # handles the flow of the game
@@ -41,11 +43,6 @@ class Game
     board.validate_guess
     board.check_win
     return congrats if board.win
-    # if board.correct
-    #   # call next method
-    # else
-    #   handle_guess
-    # end
   end
 
   def start
