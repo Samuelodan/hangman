@@ -56,6 +56,6 @@ class Game
 
       handle_guess
     end
-    console_player
+    console_player unless board.win
   end
 end
