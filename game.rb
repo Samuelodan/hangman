@@ -17,8 +17,10 @@ class Game
   end
 
   def chances_left
-    puts "Chances left: #{chances}"
-    self.chances -= 1
+    unless board.correct
+      puts "Chances left: #{chances}"
+      self.chances -= 1
+    end
   end
 
   def console_player
@@ -48,11 +50,12 @@ class Game
   def start
     board.choose_word
     set_chances
-    chances.times do
-      break if board.win
+    # chances.times do
+    until board.win
+      break if chances.zero?
 
       handle_guess
     end
-    console_player unless board.win
+    console_player
   end
 end
