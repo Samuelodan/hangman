@@ -19,7 +19,7 @@ class Game
   def chances_left
     return if board.correct
 
-    puts "Chances left: #{chances}"
+    puts "Strikes left: #{chances}"
     self.chances -= 1
   end
 
