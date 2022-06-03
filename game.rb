@@ -13,7 +13,7 @@ class Game
   end
 
   def set_chances
-    self.chances = board.chosen_word.length * 2
+    self.chances = board.chosen_word.length - 1
   end
 
   def chances_left
