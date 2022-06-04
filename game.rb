@@ -13,6 +13,8 @@ class Game
   end
 
   def set_chances
+    return if chances
+
     self.chances = board.chosen_word.length - 1
   end
 
