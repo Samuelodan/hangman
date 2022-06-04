@@ -58,4 +58,15 @@ class Board
   def check_win
     self.win = true unless hidden.include?('—')
   end
+
+  def to_json
+    JSON.dump({
+                chosen_word: chosen_word,
+                hidden: hidden,
+                ref_chosen: ref_chosen,
+                player: player.to_json,
+                win: win,
+                correct: correct
+              })
+  end
 end
