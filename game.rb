@@ -55,7 +55,7 @@ class Game
 
     File.open('progress/game_data.json', 'w') do |file|
       file.puts JSON.dump({
-                            board: board,
+                            board: board.to_json,
                             chances: chances
                           })
     end
