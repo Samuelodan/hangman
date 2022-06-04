@@ -89,6 +89,22 @@ class Game
     end
   end
 
+  def load_game
+    puts "Do you want to load previous progress?\nenter 'yes' or 'no' to continue"
+    answer = gets.chomp.downcase
+    until answer.match?(/^[a-z]{2,3}$/)
+      puts 'enter "yes" or enter "no".'
+      answer = gets.chomp.downcase
+    end
+    case answer
+    when 'yes'
+      from_json
+      puts 'Now, you will continue from previous save...'
+    when 'no' then puts 'continuing current run...'
+    else puts 'You have not provided a valid input, proceeding without loading...'
+    end
+  end
+
   def start
     board.choose_word
     set_chances
