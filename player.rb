@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'json'
+
 # creates player object
 class Player
   attr_accessor :guess
@@ -16,5 +18,11 @@ class Player
       letter = gets.chomp.downcase
     end
     self.guess = letter
+  end
+
+  def to_json
+    JSON.dump({
+                guess: guess
+              })
   end
 end
