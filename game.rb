@@ -43,6 +43,7 @@ class Game
 
   def handle_guess
     board.display_hint
+    save_game
     chances_left
     board.player.make_guess
     board.validate_guess
@@ -106,6 +107,7 @@ class Game
   end
 
   def start
+    load_game
     board.choose_word
     set_chances
     # chances.times do
