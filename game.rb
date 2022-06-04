@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require './board'
+require 'json'
 
 # handles the flow of the game
 class Game
@@ -47,6 +48,20 @@ class Game
     board.validate_guess
     board.check_win
     return congrats if board.win
+  end
+
+  def save_game
+    puts 'To save the game, enter "yes" or enter "no" to proceed without saving.'
+    answer = gets.chomp.downcase
+    until answer.match?(/^[a-z]{2,3}$/)
+      puts 'enter "yes" or enter "no" to proceed without saving.'
+      answer = gets.chomp.downcase
+    end
+    case answer
+    when 'yes' then to_json
+    when 'no' then puts 'game not saved.'
+    else puts 'You have not provided a valid input, proceeding without saving.'
+    end
   end
 
   def start
