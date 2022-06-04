@@ -81,9 +81,11 @@ class Game
       answer = gets.chomp.downcase
     end
     case answer
-    when 'yes' then to_json
-    when 'no' then puts 'game not saved.'
-    else puts 'You have not provided a valid input, proceeding without saving.'
+    when 'yes'
+      to_json
+      puts 'progress saved...'
+    when 'no' then puts 'game not saved...'
+    else puts 'You have not provided a valid input, proceeding without saving...'
     end
   end
 
