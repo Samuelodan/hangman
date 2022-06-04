@@ -19,11 +19,15 @@ class Board
   end
 
   def load_words
+    return unless wordlist.empty?
+
     words = File.read('google-10000-english-no-swears.txt').split("\n")
     self.wordlist = words.select { |w| w.length.between?(5, 12) }
   end
 
   def choose_word
+    return unless chosen_word.empty?
+
     self.chosen_word = wordlist.sample.split('')
     self.ref_chosen = chosen_word.clone
   end
