@@ -50,6 +50,17 @@ class Game
     return congrats if board.win
   end
 
+  def to_json
+    Dir.mkdir('progress') unless Dir.exist?('progress')
+
+    File.open('progress/game_data.json', 'w') do |file|
+      file.puts JSON.dump({
+                            board: board,
+                            chances: chances
+                          })
+    end
+  end
+
   def save_game
     puts 'To save the game, enter "yes" or enter "no" to proceed without saving.'
     answer = gets.chomp.downcase
