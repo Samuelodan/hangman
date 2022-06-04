@@ -61,6 +61,18 @@ class Game
     end
   end
 
+  def from_json
+    File.open('progress/game_data.json', 'r') do |file|
+      data = JSON.load file
+      self.chances = data['chances']
+      board.chosen_word = data['board']['chosen_word']
+      board.hidden = data['board']['hidden']
+      board.ref_chosen = data['board']['ref_chosen']
+      board.win = data['board']['win']
+      board.correct = data['board']['correct']
+    end
+  end
+
   def save_game
     puts 'To save the game, enter "yes" or enter "no" to proceed without saving.'
     answer = gets.chomp.downcase
