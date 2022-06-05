@@ -19,10 +19,4 @@ class Player
     end
     self.guess = letter
   end
-
-  def to_json
-    JSON.dump({
-                guess: guess
-              })
-  end
 end
