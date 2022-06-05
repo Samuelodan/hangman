@@ -75,13 +75,18 @@ class Game
     end
   end
 
+  def ask_yes_no
+    input = gets.chomp.downcase
+    until input.match?(/^[a-z]{2,3}$/)
+      puts 'enter "yes" or "no" to proceed.'
+      input = gets.chomp.downcase
+    end
+    input
+  end
+
   def save_game
     puts 'To save the game, enter "yes" or enter "no" to proceed without saving.'
-    answer = gets.chomp.downcase
-    until answer.match?(/^[a-z]{2,3}$/)
-      puts 'enter "yes" or enter "no" to proceed without saving.'
-      answer = gets.chomp.downcase
-    end
+    answer = ask_yes_no
     case answer
     when 'yes'
       to_json
@@ -93,11 +98,7 @@ class Game
 
   def load_game
     puts "Do you want to load previous progress?\nenter 'yes' or 'no' to continue"
-    answer = gets.chomp.downcase
-    until answer.match?(/^[a-z]{2,3}$/)
-      puts 'enter "yes" or enter "no".'
-      answer = gets.chomp.downcase
-    end
+    answer = ask_yes_no
     case answer
     when 'yes'
       from_json
