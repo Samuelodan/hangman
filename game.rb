@@ -66,11 +66,12 @@ class Game
     File.open('progress/game_data.json', 'r') do |file|
       data = JSON.load file
       self.chances = data['chances']
-      board.chosen_word = data['board']['chosen_word']
-      board.hidden = data['board']['hidden']
-      board.ref_chosen = data['board']['ref_chosen']
-      board.win = data['board']['win']
-      board.correct = data['board']['correct']
+      bjson = JSON.load data['board']
+      board.chosen_word = bjson['chosen_word']
+      board.hidden = bjson['hidden']
+      board.ref_chosen = bjson['ref_chosen']
+      board.win = bjson['win']
+      board.correct = bjson['correct']
     end
   end
 
