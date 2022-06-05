@@ -33,7 +33,7 @@ class Game
 
   def congrats
     reveal_word
-    puts 'Yoohoo! You guessed it, good job!'
+    puts 'You guessed it, good job!'
   end
 
   def reveal_word
@@ -111,7 +111,6 @@ class Game
     load_game
     board.choose_word
     set_chances
-    # chances.times do
     until board.win
       break if chances.zero?
 
